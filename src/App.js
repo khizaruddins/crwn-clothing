@@ -1,6 +1,8 @@
 import React from 'react';
 import './App.css';
-import { Route, BrowserRouter as Router, Link } from 'react-router-dom';
+import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
+
+import { Header } from './components/header/header.component';
 import { HomePage } from './pages/homepage/homepage.component';
 import { ShopPage } from './pages/shop/shop.component';
 
@@ -12,13 +14,14 @@ const HatsPage = () => (
 
 function App() {
   return (
-    <Router>
-      <Link to="/">Home</Link>
-      <Link to="/shop">Shop</Link>
+    <div>
+      <Header />
 
-      <Route exact path="/" component={HomePage} /> 
-      <Route exact path="/shop" component={ShopPage} />
-    </Router>
+      <Switch>
+        <Route exact path="/" component={HomePage} />
+        <Route exact path="/shop" component={ShopPage} />
+      </Switch>
+    </div>
   );
 }
 
